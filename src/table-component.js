@@ -22,7 +22,7 @@ export class TableComponent extends LitElement {
     }
     
     .container{
-        border: solid 1px #B5E5F9;
+        border: solid 1px #B5E5F9;  
     }
     table{
         color: #006EC1;
