@@ -25,8 +25,8 @@ export class IndexComponent extends LitElement {
         justify-content: center;
         align-items: center;
         background:white;
-    }
-    `;
+    }  
+    `; 
 
 
     static get properties() {
@@ -37,16 +37,9 @@ export class IndexComponent extends LitElement {
             isModalOpen: {
                 type:Boolean
             },
-            a:{
-                type:String
-            },
             returnData:{
                 type: Function
             },
-            closeModal:{
-                type: Function
-            }
-
         }
     }
 
@@ -57,33 +50,33 @@ export class IndexComponent extends LitElement {
         this.returnData = (data)=> {
             this.isModalOpen = !this.isModalOpen 
             this.characterData=data
-            console.log(data)
         }
     }
-    
-    
 
-    /*`*/
-
+    modalClose = () => {
+        this.isModalOpen=false
+    }
+    
     render() {
         return html`
         <nav>
             BBVA
         </nav>
         <section>
-        
             ${
-                this.isModalOpen ? html`<image-component 
-                .characterData=${this.characterData} 
-                @modal-event = ${()=>this.isModalOpen=false}
-                ></image-component>`:
-                html`<table-component class='container' .sendData=${this.returnData}></table-component>`
+                this.isModalOpen ? 
+                    html`<image-component 
+                            .characterData = ${this.characterData} 
+                            @modal-event = ${this.modalClose}
+                        ></image-component>`:
+                    html`<table-component 
+                            class='container'  
+                            .sendData=${this.returnData}
+                        ></table-component>`
             }
-         </section>
+        </section>
         <footer>
-            <div class='footer-name'>    
-                Pablo Torres
-            </div>
+            <div class='footer-name'>Pablo Torres</div>
         </footer>
         `;
     }

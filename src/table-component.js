@@ -98,7 +98,7 @@ export class TableComponent extends LitElement {
                             <tr>
                                 <th>N</td>
                                 <th>NOMBRE  </td>
-                                <th>STATUS</td>
+                                <th>ESTATUS</td>
                                 <th>GENERO</td>
                             </tr>
                             
@@ -107,12 +107,12 @@ export class TableComponent extends LitElement {
                             ${
                                 this.data.map((item,index)=>(
                                     html `
-                                    <tr @click=${()=>this.sendData(item)}>
-                                        <td>${index+1}</th>
-                                        <td>${item.name}</th>
-                                        <td>${this.spanish[item.status]}</th>
-                                        <td>${this.spanish[item.gender]}</th>
-                                    </tr>
+                                        <tr @click=${()=>this.sendData(item)}>
+                                            <td>${index+1}</th>
+                                            <td>${item.name}</th>
+                                            <td>${this.spanish[item.status]}</th>
+                                            <td>${this.spanish[item.gender]}</th>
+                                        </tr>
                                     `
                                 ))
                             }

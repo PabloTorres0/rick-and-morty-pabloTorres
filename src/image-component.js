@@ -53,11 +53,11 @@ export class ImageComponent extends LitElement {
     }
 
 
-    dispatchCloseModal(e) {
+    dispatchCloseModal() {
         this.dispatchEvent(new CustomEvent("modal-event", { 
-          bubbles: true,
-          detail: e}));
-       }
+        bubbles: true,
+        detail: 'cerrar modal'}));
+    }
 
     constructor(){
         super()
@@ -67,12 +67,12 @@ export class ImageComponent extends LitElement {
         return html`
         <section>
             <h3>
-                ${this.characterData.name}
+                ${this.characterData?.name}
             </h3>
             <div class='img-container'>
-                <img src=${this.characterData.image}>
+                <img src=${this.characterData?.image}>
             </div>
-            <button @click = ${()=>this.dispatchCloseModal(false)} >REGRESAR</button>
+            <button @click = ${this.dispatchCloseModal} >REGRESAR</button>
         </section>
         `;
     }
